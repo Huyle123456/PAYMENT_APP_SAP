@@ -1,0 +1,5 @@
+ID;requestNo;description;companyCode_code;vendor_code;requestDate;dueDate;paymentMethod_code;currency_code;totalAmount;status;rejectionReason;workflowInstanceId;sapSupplierInvoiceNo;sapFiscalYear;sapPostingDate;criticality
+a1b2c3d4-0001-4000-8000-000000000001;PR-2026-0001;Payment for Dell Laptops Q1 2026;1000;V10001;2026-03-01;2026-03-15;BT;VND;150000000.00;POSTED;;BPA-WF-9901;5105600123;2026;2026-03-05;3
+a1b2c3d4-0002-4000-8000-000000000002;PR-2026-0002;AWS Cloud Hosting Infrastructure;1000;V10003;2026-03-10;2026-03-25;BT;USD;4500.00;IN_APPROVAL;;BPA-WF-9902;;;;2
+a1b2c3d4-0003-4000-8000-000000000003;PR-2026-0003;Office Stationery Supplies;1010;V10004;2026-03-12;2026-03-20;BT;VND;25000000.00;DRAFT;;;;;;0
+a1b2c3d4-0004-4000-8000-000000000004;PR-2026-0004;Microsoft 365 Enterprise Licenses;1000;V10002;2026-03-05;2026-03-18;BT;USD;12000.00;REJECTED;Budget exceeded for Q1 IT Expenses.;BPA-WF-9890;;;;1
