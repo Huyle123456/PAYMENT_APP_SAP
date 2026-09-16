@@ -29,10 +29,16 @@ service PaymentService {
         @cds.odata.bindingparameter.name: '_it'
         @Common.SideEffects: { TargetEntities: ['_it'] }
         action simulateS4Posting() returns PaymentRequests;
+
+        @cds.odata.bindingparameter.name: '_it'
+        @Common.SideEffects: { TargetEntities: ['_it'] }
+        action postToS4HanaThroughCPI() returns PaymentRequests;
     };
 
     entity PaymentRequestItems as projection on my.PaymentRequestItems;
     entity Attachments as projection on my.Attachments;
+    entity EventLogs as projection on my.EventLogs;
+    entity IntegrationLogs as projection on my.IntegrationLogs;
 
     // Master Data Value Helps (Read-Only)
     @readonly entity Vendors as projection on my.Vendors;
@@ -40,6 +46,9 @@ service PaymentService {
     @readonly entity CostCenters as projection on my.CostCenters;
     @readonly entity GLAccounts as projection on my.GLAccounts;
     @readonly entity PaymentMethods as projection on my.PaymentMethods;
+
+    // Direct End-to-End Workflow Execution helper for UI simulation
+    action runFullWorkflowSimulation(paymentRequestId : UUID) returns PaymentRequests;
 
     // Event definition for Event Mesh
     event PaymentRequestSubmitted {
@@ -51,6 +60,13 @@ service PaymentService {
         dueDate         : Date;
     };
 
+    event PaymentRequestApproved {
+        requestNo       : String;
+        workflowId      : String;
+        approvedBy      : String;
+        approvedAt      : Timestamp;
+    };
+
     event PaymentRequestPosted {
         requestNo            : String;
         sapSupplierInvoiceNo : String;
@@ -58,3 +74,6 @@ service PaymentService {
         sapPostingDate       : Date;
     };
 }
+
+using from './fiori-annotations';
+

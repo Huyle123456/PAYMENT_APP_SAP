@@ -187,3 +187,60 @@ entity PaymentMethods {
     @title: 'Description'
     name            : String(50);
 }
+
+// ----------------------------------------------------
+// AUDIT & INTEGRATION LOGS
+// ----------------------------------------------------
+
+/**
+ * Event Mesh Logs
+ */
+entity EventLogs : cuid, managed {
+    @title: 'Event Name'
+    eventName      : String(100);
+
+    @title: 'Payment Request ID'
+    paymentRequest : Association to PaymentRequests;
+
+    @title: 'Request No.'
+    requestNo      : String(20);
+
+    @title: 'Event Topic / Channel'
+    topic          : String(150);
+
+    @title: 'Payload (JSON)'
+    payload        : LargeString;
+
+    @title: 'Status'
+    status         : String(20) default 'DELIVERED';
+}
+
+/**
+ * SAP Integration Suite (CPI) & S/4HANA Logs
+ */
+entity IntegrationLogs : cuid, managed {
+    @title: 'Payment Request ID'
+    paymentRequest : Association to PaymentRequests;
+
+    @title: 'Request No.'
+    requestNo      : String(20);
+
+    @title: 'Integration Step'
+    step           : String(50);
+
+    @title: 'CPI iFlow Endpoint'
+    endpoint       : String(200);
+
+    @title: 'Request Payload'
+    requestPayload : LargeString;
+
+    @title: 'Response Payload'
+    responsePayload: LargeString;
+
+    @title: 'HTTP Status'
+    httpStatus     : Integer default 200;
+
+    @title: 'Status'
+    status         : String(20) default 'SUCCESS';
+}
+

@@ -1,0 +1,2 @@
+ID;paymentRequest_ID;requestNo;step;endpoint;requestPayload;responsePayload;httpStatus;status
+i1i2i3i4-0001-4000-8000-000000000001;a1b2c3d4-0001-4000-8000-000000000001;PR-2026-0001;CPI_TO_S4HANA_POSTING;https://cpi.cfapps.ap10.hana.ondemand.com/http/s4hana/supplierinvoice/create;{"CompanyCode":"1000","InvoicingParty":"V10001","InvoiceGrossAmount":150000000,"DocumentCurrency":"VND"};{"d":{"SupplierInvoice":"5105600123","FiscalYear":"2026","DocumentStatus":"5","Message":"Posted successfully"}};201;SUCCESS

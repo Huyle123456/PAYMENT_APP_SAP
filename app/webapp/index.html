@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SAP Payment Request Cockpit</title>
+
+    <script
+        id="sap-ui-bootstrap"
+        src="https://ui5.sap.com/resources/sap-ui-core.js"
+        data-sap-ui-theme="sap_horizon"
+        data-sap-ui-resourceroots='{
+            "sap.payment.app": "./"
+        }'
+        data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
+        data-sap-ui-compatVersion="edge"
+        data-sap-ui-async="true"
+        data-sap-ui-preload="async"
+        data-sap-ui-libs="sap.m,sap.f,sap.ui.layout,sap.uxap,sap.ui.comp,sap.ui.core">
+    </script>
+</head>
+<body class="sapUiBody" id="content">
+    <div
+        data-sap-ui-component
+        data-name="sap.payment.app"
+        data-id="container"
+        data-settings='{"id" : "paymentAppRoot"}'
+        style="height: 100%">
+    </div>
+</body>
+</html>

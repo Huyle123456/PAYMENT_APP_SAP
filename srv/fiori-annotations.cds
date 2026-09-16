@@ -80,6 +80,34 @@ annotate PaymentService.PaymentRequests with @(
                 Action: 'PaymentService.approve',
                 Label: 'Approve',
                 Inline: true
+            },
+            {
+                $Type: 'UI.DataFieldForAction',
+                Action: 'PaymentService.postToS4HanaThroughCPI',
+                Label: 'Post to S/4HANA (CPI)',
+                Inline: true
+            }
+        ],
+        Identification: [
+            {
+                $Type: 'UI.DataFieldForAction',
+                Action: 'PaymentService.submitForApproval',
+                Label: 'Submit for Approval'
+            },
+            {
+                $Type: 'UI.DataFieldForAction',
+                Action: 'PaymentService.approve',
+                Label: 'Approve'
+            },
+            {
+                $Type: 'UI.DataFieldForAction',
+                Action: 'PaymentService.reject',
+                Label: 'Reject'
+            },
+            {
+                $Type: 'UI.DataFieldForAction',
+                Action: 'PaymentService.postToS4HanaThroughCPI',
+                Label: 'Post to S/4HANA (CPI)'
             }
         ],
         HeaderFacets: [
