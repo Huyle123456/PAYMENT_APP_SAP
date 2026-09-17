@@ -6,6 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>SAP Payment Request Cockpit</title>
 
+    <style>
+        html, body, #content {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+
     <script
         id="sap-ui-bootstrap"
         src="https://ui5.sap.com/resources/sap-ui-core.js"
@@ -19,10 +28,10 @@
         data-sap-ui-preload=""
         data-sap-ui-flexibilityServices="none"
         data-sap-ui-xx-bindingSyntax="complex"
-        data-sap-ui-libs="sap.m,sap.fe.core,sap.fe.templates,sap.ui.core">
+        data-sap-ui-libs="sap.m,sap.fe.core,sap.fe.templates,sap.ui.core,sap.f,sap.uxap">
     </script>
 </head>
-<body class="sapUiBody" id="content">
+<body class="sapUiBody sapUiSizeCompact" id="content">
     <div
         data-sap-ui-component
         data-name="sap.payment.app"
