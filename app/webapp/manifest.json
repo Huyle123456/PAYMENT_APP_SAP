@@ -32,13 +32,13 @@
     }
   },
   "sap.ui5": {
-    "pageMode": "Replace",
     "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.108.0",
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
+        "sap.f": {},
         "sap.fe.core": {},
         "sap.fe.templates": {}
       }
@@ -67,15 +67,7 @@
         }
       }
     },
-    "resources": {
-      "css": [
-        {
-          "uri": "css/style.css"
-        }
-      ]
-    },
     "routing": {
-      "config": {},
       "routes": [
         {
           "pattern": ":?query:",
@@ -97,6 +89,8 @@
             "settings": {
               "contextPath": "/PaymentRequests",
               "entitySet": "PaymentRequests",
+              "variantManagement": "Page",
+              "initialLoad": "Enabled",
               "navigation": {
                 "PaymentRequests": {
                   "detail": {
@@ -114,7 +108,8 @@
           "options": {
             "settings": {
               "contextPath": "/PaymentRequests",
-              "entitySet": "PaymentRequests"
+              "entitySet": "PaymentRequests",
+              "editableHeaderContent": false
             }
           }
         }

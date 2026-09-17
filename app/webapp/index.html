@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SAP Payment Request Cockpit</title>
-
     <style>
-        html, body, #content {
+        html, body {
             height: 100%;
             margin: 0;
             padding: 0;
             overflow: hidden;
+        }
+        #content,
+        #container,
+        #container-uiarea {
+            height: 100%;
+            width: 100%;
         }
     </style>
 
@@ -25,9 +29,7 @@
         data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
         data-sap-ui-compatVersion="edge"
         data-sap-ui-async="true"
-        data-sap-ui-preload=""
-        data-sap-ui-flexibilityServices="none"
-        data-sap-ui-xx-bindingSyntax="complex"
+        data-sap-ui-frameOptions="trusted"
         data-sap-ui-libs="sap.m,sap.fe.core,sap.fe.templates,sap.ui.core,sap.f,sap.uxap">
     </script>
 </head>
@@ -37,6 +39,7 @@
         data-name="sap.payment.app"
         data-id="container"
         data-settings='{"id" : "paymentAppRoot"}'
+        data-handle-validation="true"
         style="height: 100%">
     </div>
 </body>
