@@ -23,12 +23,7 @@
   "sap.ui": {
     "technology": "UI5",
     "icons": {
-      "icon": "sap-icon://money-bills",
-      "favIcon": "",
-      "phone": "",
-      "phone@2": "",
-      "tablet": "",
-      "tablet@2": ""
+      "icon": "sap-icon://money-bills"
     },
     "deviceTypes": {
       "desktop": true,
@@ -38,6 +33,7 @@
   },
   "sap.ui5": {
     "pageMode": "Replace",
+    "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.108.0",
       "libs": {
@@ -100,6 +96,7 @@
           "options": {
             "settings": {
               "contextPath": "/PaymentRequests",
+              "entitySet": "PaymentRequests",
               "navigation": {
                 "PaymentRequests": {
                   "detail": {
@@ -116,7 +113,8 @@
           "name": "sap.fe.templates.ObjectPage",
           "options": {
             "settings": {
-              "contextPath": "/PaymentRequests"
+              "contextPath": "/PaymentRequests",
+              "entitySet": "PaymentRequests"
             }
           }
         }
