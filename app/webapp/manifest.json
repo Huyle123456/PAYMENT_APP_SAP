@@ -1,5 +1,5 @@
 {
-  "_version": "1.32.0",
+  "_version": "1.49.0",
   "sap.app": {
     "id": "sap.payment.app",
     "type": "application",
@@ -14,6 +14,7 @@
         "uri": "/payment/",
         "type": "OData",
         "settings": {
+          "annotations": [],
           "odataVersion": "4.0"
         }
       }
@@ -36,22 +37,14 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": false,
-    "rootView": {
-      "viewName": "sap.payment.app.view.App",
-      "type": "XML",
-      "async": true,
-      "id": "app"
-    },
+    "pageMode": "Replace",
     "dependencies": {
       "minUI5Version": "1.108.0",
       "libs": {
-        "sap.ui.core": {},
         "sap.m": {},
-        "sap.f": {},
-        "sap.ui.layout": {},
-        "sap.uxap": {},
-        "sap.ui.comp": {}
+        "sap.ui.core": {},
+        "sap.fe.core": {},
+        "sap.fe.templates": {}
       }
     },
     "contentDensities": {
@@ -66,6 +59,16 @@
           "supportedLocales": ["", "vi", "en"],
           "fallbackLocale": ""
         }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
       }
     },
     "resources": {
@@ -76,46 +79,46 @@
       ]
     },
     "routing": {
-      "config": {
-        "routerClass": "sap.m.routing.Router",
-        "viewType": "XML",
-        "viewPath": "sap.payment.app.view",
-        "controlId": "appRootControl",
-        "controlAggregation": "pages",
-        "async": true
-      },
+      "config": {},
       "routes": [
         {
-          "name": "list",
-          "pattern": "",
-          "target": "list"
+          "pattern": ":?query:",
+          "name": "PaymentRequestsList",
+          "target": "PaymentRequestsList"
         },
         {
-          "name": "create",
-          "pattern": "payment-requests/create",
-          "target": "create"
-        },
-        {
-          "name": "detail",
-          "pattern": "payment-requests/{id}",
-          "target": "detail"
+          "pattern": "PaymentRequests({key}):?query:",
+          "name": "PaymentRequestsObjectPage",
+          "target": "PaymentRequestsObjectPage"
         }
       ],
       "targets": {
-        "list": {
-          "viewName": "List",
-          "viewId": "list",
-          "viewLevel": 1
+        "PaymentRequestsList": {
+          "type": "Component",
+          "id": "PaymentRequestsList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/PaymentRequests",
+              "navigation": {
+                "PaymentRequests": {
+                  "detail": {
+                    "route": "PaymentRequestsObjectPage"
+                  }
+                }
+              }
+            }
+          }
         },
-        "create": {
-          "viewName": "Create",
-          "viewId": "create",
-          "viewLevel": 2
-        },
-        "detail": {
-          "viewName": "Detail",
-          "viewId": "detail",
-          "viewLevel": 2
+        "PaymentRequestsObjectPage": {
+          "type": "Component",
+          "id": "PaymentRequestsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "contextPath": "/PaymentRequests"
+            }
+          }
         }
       }
     }

@@ -72,6 +72,12 @@ entity PaymentRequests : cuid, managed {
 
     @title: 'Attachments'
     attachments          : Composition of many Attachments on attachments.parent = $self;
+
+    @title: 'Event Mesh Logs'
+    eventLogs            : Association to many EventLogs on eventLogs.paymentRequest = $self;
+
+    @title: 'Integration Logs'
+    integrationLogs      : Association to many IntegrationLogs on integrationLogs.paymentRequest = $self;
 }
 
 /**
